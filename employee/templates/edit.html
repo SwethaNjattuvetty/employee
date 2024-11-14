@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>add</h2>
+<div class="container">
+<form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+
+    <div class="mb-3">
+        <label  class="form-label">Employee Name</label>
+        <input type="text" class="form-control"  name="n" placeholder="Enter your name" value="{{employee.name}}">
+    </div>
+
+
+    <div class="mb-3">
+        <label  class="form-label">Age</label>
+        <input type="number" class="form-control" name="a" placeholder="Enter your age" value="{{employee.age}}">
+    </div>
+
+
+    <div class="mb-3">
+        <label  class="form-label">Address</label>
+        <textarea class="form-control"  name="ad"  placeholder="Enter your address"  >{{employee.address}}</textarea>
+    </div>
+
+
+    <div class="mb-3">
+        <label  class="form-label">Email</label>
+        <input type="email" class="form-control"  name="em" placeholder="Enter your email" value="{{employee.email}}">
+    </div>
+
+
+    <div class="mb-3">
+        <label  class="form-label">Upload Image</label>
+        <input type="file" class="form-control"  name="i" >
+        <img src="{{employee.image.url}}" style="height:100px; width:100px;">
+    </div>
+
+
+    <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+</div>
+{% endblock %}

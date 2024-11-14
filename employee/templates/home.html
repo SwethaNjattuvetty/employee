@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        {% for i in employee %}
+        <div  class="col-sm-4 mt-5">
+            <div class="card mx-auto mb-3" style="width: 18rem; background-color:#D0B8A8">
+  <img src="{{i.image.url}}" class="card-img-top" height="300px" width="300px" >
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+      <h5 class="card-title">{{i.age}}</h5>
+      <h5 class="card-title">{{i.email}}</h5>
+    <p class="card-text">{{i.address}}</p>
+
+      <a href="{% url 'app1:delete' i.id %}" class="btn" style="background-color:#795757;">Delete</a>
+      <a href="{% url 'app1:edit' i.id %}" class="btn" style="background-color:#795757;">Edit</a>
+
+  </div>
+</div></div>
+        {% endfor %}
+    </div>
+</div>
+{%  endblock %}
